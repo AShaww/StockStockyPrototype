@@ -1,7 +1,9 @@
 package com.example.stockstockyprototype;
 
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,25 +11,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-        public static final String ITEM_NAME = "";
-
-
-        public static final String WINE_STOCK_TAKE = "WINE_STOCK_TAKE";
-        public static final String ITEM_CODE = "ITEM_CODE";
-        public static final String WEEK_N_73_PAR = "WEEK_N73_PAR";
-        public static final String STOREROOM_FRIDGE = "STOREROOM_FRIDGE";
-        public static final String LOWER_GROUND_RACK = "LOWER_GROUND_RACK";
-        public static final String GROUND_FLOOR_FRIDGE = "GROUND_FLOOR_FRIDGE";
-        public static final String GROUND_FLOOR_BA_INC_RETAILER = "GROUND_FLOOR_BA_INC_RETAILER";
-        public static final String FIRST_FLOOR_GLASS_RACK = "FIRST_FLOOR_GLASS_RACK";
-        public static final String FIRST_FLOOR_STAINLESS_SHELF = "FIRST_FLOOR_STAINLESS_SHELF";
-        public static final String FIRST_FLOOR_BAR_SPEED_RAIL = "FIRST_FLOOR_BAR_SPEED_RAIL";
-        public static final String TOTAL_IN_STOCK = "TOTAL_IN_STOCK";
-        public static final String VARIANCE = "VARIANCE";
-        public static final String ACTIVE_WINE = "ACTIVE_WINE";
-        public static final String COLUMN_ID = "ID";    //id is needed so it increments ? lets see...
+        private static final String WINE_STOCK_TABLE = "WINE_STOCK_TABLE";
+        private static final String COLUMN_ID = "COLUMN_ID";
+        private static final String COLUMN_WINE_NAME = "COLUMN_WINE_NAME";
+        private static final String COLUMN_WINE_CODE = "COLUMN_WINE_CODE";
+        private static final String COLUMN_WINE_PAR = "COLUMN_WINE_PAR";
+        private static final String COLUMN_SR_FRIDGE = "COLUMN_SR_FRIDGE";
+        private static final String COLUMN_LG_RACK = "COLUMN_LG_RACK";
+        private static final String COLUMN_LG_FRIDGE = "COLUMN_LG_FRIDGE";
+        private static final String COLUMN_LG_RETAIL = "COLUMN_LG_RETAIL";
+        private static final String COLUMN_FRST_FRIDGE = "COLUMN_FRST_FRIDGE";
+        private static final String COLUMN_FRST_RACK = "COLUMN_FRST_RACK";
+        private static final String COLUMN_FRST_SHELF = "COLUMN_FRST_SHELF";
+        private static final String COLUMN_FRST_CAKE_FRIDGE = "COLUMN_FRST_CAKE_FRIDGE";
+        private static final String COLUMN_FRST_SPEED_RAIL = "COLUMN_FRST_SPEED_RAIL";
+        private static final String COLUMN_CELLAR = "COLUMN_CELLAR";
 
         public DataBaseHelper(@Nullable Context context) {
                 super(context, "redWine.db", null, 1);
@@ -36,12 +39,84 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-                String createTableStatement = "CREATE TABLE " + WINE_STOCK_TAKE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + ITEM_CODE + ", " + WEEK_N_73_PAR + " , " + STOREROOM_FRIDGE + "," + LOWER_GROUND_RACK + ", " + GROUND_FLOOR_FRIDGE + ", " + GROUND_FLOOR_BA_INC_RETAILER + ", " + FIRST_FLOOR_GLASS_RACK + "," + FIRST_FLOOR_STAINLESS_SHELF + "," + FIRST_FLOOR_BAR_SPEED_RAIL + ", " + TOTAL_IN_STOCK + ", " + VARIANCE + ", " + ACTIVE_WINE + ")";
+                String createTableStatement = "CREATE TABLE " + WINE_STOCK_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WINE_NAME + " TEXT, " + COLUMN_WINE_CODE + " INT, " + COLUMN_WINE_PAR + " INT, " + COLUMN_SR_FRIDGE + " INT, " + COLUMN_LG_RACK + " INT, " +
+                        COLUMN_LG_FRIDGE + " INT, " + COLUMN_LG_RETAIL + " INT, " + COLUMN_FRST_FRIDGE + " INT, " + COLUMN_FRST_RACK + " INT, " + COLUMN_FRST_SHELF + " INT, " + COLUMN_FRST_CAKE_FRIDGE + " INT, " + COLUMN_FRST_SPEED_RAIL + " INT, " + COLUMN_CELLAR + "  INT)";
                 db.execSQL(createTableStatement);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {      // needs to be implemented for the SQLite import to work.
+        }
+        public boolean addOne(WineStockModel wineStockModel){
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues cv = new ContentValues();
 
+             // hERE CONTINUE
+
+                long insert = db.insert(WINE_STOCK_TABLE, null, cv);
+                if(insert == -1) {
+                        return false;
+                }
+                else{
+                        return true;
+                }
+        }
+        public boolean deleteOne(WineStockModel wineStockModel){
+                // find customerModel in database. If found, delete it and return true.
+                // if not found, return false.
+                SQLiteDatabase db = this.getWritableDatabase();
+                String queryString = "DELETE FROM " + WINE_STOCK_TABLE + " WHERE " + COLUMN_ID + " = " + wineStockModel.getId();
+
+                Cursor cursor = db.rawQuery(queryString, null);
+                if(cursor.moveToFirst()){
+                        return true;
+                }
+                else {
+                        return false;
+                }
+        }
+        public List<WineStockModel> getEveryone(){
+                List<WineStockModel> returnList = new ArrayList<>();
+
+                String queryString ="SELECT * FROM " + WINE_STOCK_TABLE;
+                SQLiteDatabase db = this.getReadableDatabase();
+                Cursor cursor = db.rawQuery(queryString,null);
+                if(cursor.moveToFirst()){
+                        // loop through the cursor (result set) and create new customer objects. Put them into the return lost.
+                        do {
+                                int ID = cursor.getInt(0);
+                                String Name = cursor.getString(1);
+                                int customerAge = cursor.getInt(2);
+
+                                int id = cursor.getInt(1);
+                                int itemCode = cursor.getInt(2);
+                                String itemName = cursor.getString(3);
+                                int par = cursor.getInt(4);
+                                int srFridge = cursor.getInt(5);
+                                int srRack = cursor.getInt(6);
+                                int lgRack = cursor.getInt(7);
+                                int lgFridge = cursor.getInt(8);
+                                int lgRetail = cursor.getInt(9);
+                                int fstFridge = cursor.getInt(10);
+                                int fstRack = cursor.getInt(11);
+                                int fstShelf = cursor.getInt(12);
+                                int fstRail = cursor.getInt(13);
+                                int cellar = cursor.getInt(14);
+
+                                WineStockModel newWine = new WineStockModel(id,itemCode,itemName,par,srFridge,srRack,lgRack,lgFridge,lgRetail,fstFridge,fstRack,fstShelf,fstRail,cellar);
+
+                                returnList.add(newWine);
+
+                        } while (cursor.moveToNext());
+
+                }
+                else{
+                        // failure does not add anything to the list.
+
+                }
+                //closes cursor/database when finished with.
+                cursor.close();
+                db.close();
+                return returnList;
         }
 }
