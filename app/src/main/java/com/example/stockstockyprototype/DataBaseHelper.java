@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+
 import androidx.annotation.Nullable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -25,6 +27,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         public static final String TOTAL_IN_STOCK = "TOTAL_IN_STOCK";
         public static final String VARIANCE = "VARIANCE";
         public static final String ACTIVE_WINE = "ACTIVE_WINE";
+        public static final String COLUMN_ID = "ID";    //id is needed so it increments ? lets see...
 
         public DataBaseHelper(@Nullable Context context) {
                 super(context, "redWine.db", null, 1);
