@@ -37,7 +37,7 @@ public class WineStockModel {
     public String toString() {
         return "WineStockModel{" +
                 "id=" + id +
-                ", itemName='" + itemName + '\'' +
+                ", itemName='" + itemName +
                 ", itemCode=" + itemCode +
                 ", par=" + par +
                 ", srFridge=" + srFridge +

@@ -23,8 +23,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         private static final String COLUMN_WINE_PAR = "COLUMN_WINE_PAR";
         private static final String COLUMN_SR_FRIDGE = "COLUMN_SR_FRIDGE";
         private static final String COLUMN_LG_RACK = "COLUMN_LG_RACK";
-        private static final String COLUMN_LG_FRIDGE = "COLUMN_LG_FRIDGE";
-        private static final String COLUMN_LG_RETAIL = "COLUMN_LG_RETAIL";
+        private static final String COLUMN_G_FRIDGE = "COLUMN_G_FRIDGE";
+        private static final String COLUMN_G_RETAIL = "COLUMN_G_RETAIL";
         private static final String COLUMN_FRST_FRIDGE = "COLUMN_FRST_FRIDGE";
         private static final String COLUMN_FRST_RACK = "COLUMN_FRST_RACK";
         private static final String COLUMN_FRST_SHELF = "COLUMN_FRST_SHELF";
@@ -40,7 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
                 String createTableStatement = "CREATE TABLE " + WINE_STOCK_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WINE_NAME + " TEXT, " + COLUMN_WINE_CODE + " INT, " + COLUMN_WINE_PAR + " INT, " + COLUMN_SR_FRIDGE + " INT, " + COLUMN_LG_RACK + " INT, " +
-                        COLUMN_LG_FRIDGE + " INT, " + COLUMN_LG_RETAIL + " INT, " + COLUMN_FRST_FRIDGE + " INT, " + COLUMN_FRST_RACK + " INT, " + COLUMN_FRST_SHELF + " INT, " + COLUMN_FRST_CAKE_FRIDGE + " INT, " + COLUMN_FRST_SPEED_RAIL + " INT, " + COLUMN_CELLAR + "  INT)";
+                        COLUMN_G_FRIDGE + " INT, " + COLUMN_G_RETAIL + " INT, " + COLUMN_FRST_FRIDGE + " INT, " + COLUMN_FRST_RACK + " INT, " + COLUMN_FRST_SHELF + " INT, " + COLUMN_FRST_CAKE_FRIDGE + " INT, " + COLUMN_FRST_SPEED_RAIL + " INT, " + COLUMN_CELLAR + "  INT)";
                 db.execSQL(createTableStatement);
         }
 
@@ -57,8 +57,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 cv.put(COLUMN_WINE_PAR, wineStockModel.getPar());
                 cv.put(COLUMN_SR_FRIDGE, wineStockModel.getSrFridge());
                 cv.put(COLUMN_LG_RACK, wineStockModel.getLgRack());
-                cv.put(COLUMN_LG_FRIDGE,wineStockModel.getLgFridge());
-                cv.put(COLUMN_LG_RETAIL,wineStockModel.getLgRetail());
+                cv.put(COLUMN_G_FRIDGE,wineStockModel.getgFridge());
+                cv.put(COLUMN_G_RETAIL,wineStockModel.getgRetail());
                 cv.put(COLUMN_FRST_FRIDGE, wineStockModel.getFstFridge());
                 cv.put(COLUMN_FRST_RACK, wineStockModel.getFstRack());
                 cv.put(COLUMN_FRST_SHELF, wineStockModel.getFstShelf());

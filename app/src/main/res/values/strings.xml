@@ -29,4 +29,5 @@
     <string name="fstCake">First Cake</string>
     <string name="fstRail">First SP Rail</string>
     <string name="cellar">Cellar</string>
+    <string name="btnViewAll">View All</string>
 </resources>

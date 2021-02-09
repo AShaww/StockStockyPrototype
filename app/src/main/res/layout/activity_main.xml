@@ -15,7 +15,7 @@
         android:ems="10"
         android:hint="@string/fstCakeFridge"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fstShelf" />
 
@@ -28,7 +28,7 @@
         android:ems="10"
         android:hint="@string/cellar"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fstRail" />
 
@@ -41,7 +41,7 @@
         android:ems="10"
         android:hint="@string/fstRack"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fstFridge" />
 
@@ -54,7 +54,7 @@
         android:ems="10"
         android:hint="@string/fstShelf"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fstRack" />
 
@@ -67,7 +67,7 @@
         android:ems="10"
         android:hint="@string/fstFridge"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_gRetail" />
 
@@ -79,7 +79,7 @@
         android:ems="10"
         android:hint="@string/gRetail"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_gFridge" />
 
@@ -92,7 +92,7 @@
         android:ems="10"
         android:hint="@string/lgFridge"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_lgRack" />
 
@@ -105,7 +105,7 @@
         android:ems="10"
         android:hint="@string/grndFridge"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_lgFridge" />
 
@@ -117,7 +117,7 @@
         android:ems="10"
         android:hint="@string/lgRack"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_srFridge" />
 
@@ -277,11 +277,12 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="10dp"
         android:text="@string/btnAdd"
         app:layout_constraintBottom_toTopOf="@+id/btn_eight"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_down" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_down"
+        app:layout_constraintVertical_bias="0.522" />
 
     <EditText
         android:id="@+id/et_name"
@@ -292,7 +293,7 @@
         android:ems="10"
         android:hint="@string/ItemName"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv_wineList" />
 
@@ -305,7 +306,7 @@
         android:ems="10"
         android:hint="@string/itemCode"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
@@ -318,7 +319,7 @@
         android:ems="10"
         android:hint="@string/itemPar"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_itemCode" />
 
@@ -331,7 +332,7 @@
         android:ems="10"
         android:hint="@string/srFridge"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_par" />
 
@@ -344,8 +345,18 @@
         android:ems="10"
         android:hint="@string/fstRail"
         android:inputType="textPersonName"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fstCake" />
+
+    <Button
+        android:id="@+id/btn_viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/btnViewAll"
+        app:layout_constraintBottom_toTopOf="@+id/btn_seven"
+        app:layout_constraintStart_toEndOf="@+id/btn_add"
+        app:layout_constraintTop_toBottomOf="@+id/btn_down" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
