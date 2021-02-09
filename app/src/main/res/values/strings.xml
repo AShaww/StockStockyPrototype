@@ -14,4 +14,19 @@
     <string name="shift_left">←</string>
     <string name="shift_right">→</string>
     <string name="btnAdd">Add</string>
+    <string name="ItemName">Item Name</string>
+    <string name="itemCode">Item Code</string>
+    <string name="itemPar">Par Level</string>
+    <string name="srFridge">ST RM Fridge</string>
+    <string name="lgRack">LG Rack</string>
+    <string name="lgFridge">LG Fridge</string>
+    <string name="grndFridge">Ground Fridge</string>
+    <string name="gRetail">Ground Retail</string>
+    <string name="fstFridge">First Fridge</string>
+    <string name="fstRack">First Rack</string>
+    <string name="fstShelf">First Shelf</string>
+    <string name="fstCakeFridge">First Cake F</string>
+    <string name="fstCake">First Cake</string>
+    <string name="fstRail">First SP Rail</string>
+    <string name="cellar">Cellar</string>
 </resources>

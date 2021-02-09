@@ -52,6 +52,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ContentValues cv = new ContentValues();
 
              // hERE CONTINUE
+                cv.put(COLUMN_WINE_NAME, wineStockModel.getItemName());
+                cv.put(COLUMN_WINE_CODE, wineStockModel.getItemCode());
+                cv.put(COLUMN_WINE_PAR, wineStockModel.getPar());
+                cv.put(COLUMN_SR_FRIDGE, wineStockModel.getSrFridge());
+                cv.put(COLUMN_LG_RACK, wineStockModel.getLgRack());
+                cv.put(COLUMN_LG_FRIDGE,wineStockModel.getLgFridge());
+                cv.put(COLUMN_LG_RETAIL,wineStockModel.getLgRetail());
+                cv.put(COLUMN_FRST_FRIDGE, wineStockModel.getFstFridge());
+                cv.put(COLUMN_FRST_RACK, wineStockModel.getFstRack());
+                cv.put(COLUMN_FRST_SHELF, wineStockModel.getFstShelf());
+                cv.put(COLUMN_FRST_CAKE_FRIDGE, wineStockModel.getFstFridge());
+                cv.put(COLUMN_FRST_SPEED_RAIL, wineStockModel.getFstRail());
+                cv.put(COLUMN_CELLAR, wineStockModel.getCellar());
 
                 long insert = db.insert(WINE_STOCK_TABLE, null, cv);
                 if(insert == -1) {
@@ -61,6 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         return true;
                 }
         }
+        //Deletes value in list using DELETE FROM SQL
         public boolean deleteOne(WineStockModel wineStockModel){
                 // find customerModel in database. If found, delete it and return true.
                 // if not found, return false.
@@ -84,16 +98,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 if(cursor.moveToFirst()){
                         // loop through the cursor (result set) and create new customer objects. Put them into the return lost.
                         do {
-                                int ID = cursor.getInt(0);
-                                String Name = cursor.getString(1);
-                                int customerAge = cursor.getInt(2);
 
                                 int id = cursor.getInt(1);
                                 int itemCode = cursor.getInt(2);
                                 String itemName = cursor.getString(3);
                                 int par = cursor.getInt(4);
                                 int srFridge = cursor.getInt(5);
-                                int srRack = cursor.getInt(6);
                                 int lgRack = cursor.getInt(7);
                                 int lgFridge = cursor.getInt(8);
                                 int lgRetail = cursor.getInt(9);
@@ -103,7 +113,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                 int fstRail = cursor.getInt(13);
                                 int cellar = cursor.getInt(14);
 
-                                WineStockModel newWine = new WineStockModel(id,itemCode,itemName,par,srFridge,srRack,lgRack,lgFridge,lgRetail,fstFridge,fstRack,fstShelf,fstRail,cellar);
+                                WineStockModel newWine = new WineStockModel(id,itemCode,itemName,par,srFridge,lgRack,lgFridge,lgRetail,fstFridge,fstRack,fstShelf,fstRail,cellar);
 
                                 returnList.add(newWine);
 

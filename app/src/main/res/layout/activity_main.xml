@@ -6,6 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/et_fstCake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/fstCakeFridge"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fstShelf" />
+
+    <EditText
+        android:id="@+id/et_cellar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/cellar"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fstRail" />
+
+    <EditText
+        android:id="@+id/et_fstRack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/fstRack"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fstFridge" />
+
+    <EditText
+        android:id="@+id/et_fstShelf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/fstShelf"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fstRack" />
+
+    <EditText
+        android:id="@+id/et_fstFridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/fstFridge"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_gRetail" />
+
+    <EditText
+        android:id="@+id/et_gRetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/gRetail"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_gFridge" />
+
+    <EditText
+        android:id="@+id/et_lgFridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/lgFridge"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_lgRack" />
+
+    <EditText
+        android:id="@+id/et_gFridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/grndFridge"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_lgFridge" />
+
+    <EditText
+        android:id="@+id/et_lgRack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/lgRack"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_srFridge" />
+
     <Button
         android:id="@+id/btn_one"
         android:layout_width="70dp"
@@ -167,5 +282,70 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_eight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_down" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/ItemName"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_wineList" />
+
+    <EditText
+        android:id="@+id/et_itemCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/itemCode"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+    <EditText
+        android:id="@+id/et_par"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/itemPar"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_itemCode" />
+
+    <EditText
+        android:id="@+id/et_srFridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/srFridge"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_par" />
+
+    <EditText
+        android:id="@+id/et_fstRail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="@string/fstRail"
+        android:inputType="textPersonName"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fstCake" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

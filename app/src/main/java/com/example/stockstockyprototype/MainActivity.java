@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,18 +44,27 @@ public class MainActivity extends AppCompatActivity {
         btn_add = findViewById(R.id.btn_add);
         lv_wineList = findViewById(R.id.lv_wineList);
 
-        dataBaseHelper = new DataBaseHelper(MainActivity.this);
-//        ShowWineStockOnListView(dataBaseHelper);
+        //Element names for text input
 
-//        btn_add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            WineStockModel wineStockModel;
-//            try{
-//                wineStockModel = new WineStockModel( -1, );
-//            }
-//            }
-//        });
+
+
+        dataBaseHelper = new DataBaseHelper(MainActivity.this);
+       // ShowWineStockOnListView(dataBaseHelper);
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            WineStockModel wineStockModel;
+            try{
+             //   wineStockModel = new WineStockModel( -1,  );
+            }
+            catch (Exception e) {
+                Toast.makeText(MainActivity.this, "Error creating Customer", Toast.LENGTH_SHORT).show();
+                //wineStockModel = new WineStockModel(-1, "error",0, null,null,null,null,null,null,null,null,null,null, null);
+
+            }
+            }
+        });
 
         // click for each button in number 1 - 9
         btn_one.setOnClickListener(new View.OnClickListener() {
@@ -129,8 +140,18 @@ public class MainActivity extends AppCompatActivity {
         btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //CustomerModel clickedCustomer = (CustomerModel) parent.getItemAtPosition(position);
+               // dataBaseHelper.deleteOne(clickedCustomer);
+                //ShowCustomerOnListView(dataBaseHelper);
+               // Toast.makeText(MainActivity.this, "Deleted" + clickedCustomer.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        lv_wineList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
         });
+
     }
 }

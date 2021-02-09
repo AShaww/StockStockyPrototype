@@ -17,13 +17,12 @@ public class WineStockModel {
     private int cellar;
 
 
-    public WineStockModel(int id, int itemCode, String itemName, int par, int srFridge, int srRack, int lgRack, int lgFridge, int lgRetail, int fstFridge, int fstRack, int fstShelf, int fstRail, int cellar) {
+    public WineStockModel(int id, int itemCode, String itemName, int par, int srFridge, int lgRack, int lgFridge, int lgRetail, int fstFridge, int fstRack, int fstShelf, int fstRail, int cellar) {
         this.id = id;
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.par = par;
         this.srFridge = srFridge;
-        this.srRack = srRack;
         this.lgRack = lgRack;
         this.lgFridge = lgFridge;
         this.lgRetail = lgRetail;
@@ -42,7 +41,6 @@ public class WineStockModel {
                 ", itemName='" + itemName +
                 ", par=" + par +
                 ", srFridge=" + srFridge +
-                ", srRack=" + srRack +
                 ", lgRack=" + lgRack +
                 ", lgFridge=" + lgFridge +
                 ", lgRetail=" + lgRetail +
@@ -92,14 +90,6 @@ public class WineStockModel {
 
     public void setSrFridge(int srFridge) {
         this.srFridge = srFridge;
-    }
-
-    public int getSrRack() {
-        return srRack;
-    }
-
-    public void setSrRack(int srRack) {
-        this.srRack = srRack;
     }
 
     public int getLgRack() {
