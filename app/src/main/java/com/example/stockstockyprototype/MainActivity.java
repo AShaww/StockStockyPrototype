@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         et_fstRail = findViewById(R.id.et_fstRail);
         et_cellar = findViewById(R.id.et_cellar);
 
-
         dataBaseHelper = new DataBaseHelper(MainActivity.this);
+
         ShowWineOnListView(dataBaseHelper);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
@@ -77,19 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     wineStockModel = new WineStockModel(-1,
-                            et_name.getText().toString(),
-                            Integer.parseInt(et_itemCode.getText().toString()),
-                            Integer.parseInt(et_par.getText().toString()),
-                            Integer.parseInt(et_srFridge.getText().toString()),
-                            Integer.parseInt(et_lgRack.getText().toString()),
-                            Integer.parseInt(et_gRetail.getText().toString()),
-                            Integer.parseInt(et_gFridge.getText().toString()),
-                            Integer.parseInt(et_fstFridge.getText().toString()),
-                            Integer.parseInt(et_fstRack.getText().toString()),
-                            Integer.parseInt(et_fstShelf.getText().toString()),
-                            Integer.parseInt(et_fstCake.getText().toString()),
-                            Integer.parseInt(et_fstRail.getText().toString()),
-                            Integer.parseInt(et_cellar.getText().toString()));
+                            et_name.getText().toString(), Integer.parseInt(et_itemCode.getText().toString()), Integer.parseInt(et_par.getText().toString()), Integer.parseInt(et_srFridge.getText().toString()), Integer.parseInt(et_lgRack.getText().toString()), Integer.parseInt(et_gRetail.getText().toString()), Integer.parseInt(et_gFridge.getText().toString()), Integer.parseInt(et_fstFridge.getText().toString()), Integer.parseInt(et_fstRack.getText().toString()), Integer.parseInt(et_fstShelf.getText().toString()), Integer.parseInt(et_fstCake.getText().toString()), Integer.parseInt(et_fstRail.getText().toString()), Integer.parseInt(et_cellar.getText().toString()));
 
                     Toast.makeText(MainActivity.this, wineStockModel.toString(), Toast.LENGTH_SHORT).show();
 
@@ -98,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
                     wineStockModel = new WineStockModel(-1, "Error", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                 }
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+                //Parse integer and change to string with Integer.parseInt(et_age.getText().toString());
+                boolean success = dataBaseHelper.addOne(wineStockModel);
+                ShowWineOnListView(dataBaseHelper);
+                Toast.makeText(MainActivity.this, "Success= " + success, Toast.LENGTH_SHORT).show();
+
             }
 
         });

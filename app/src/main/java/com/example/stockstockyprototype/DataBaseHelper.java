@@ -39,8 +39,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-                String createTableStatement = "CREATE TABLE " + WINE_STOCK_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WINE_NAME + " TEXT, " + COLUMN_WINE_CODE + " INT, " + COLUMN_WINE_PAR + " INT, " + COLUMN_SR_FRIDGE + " INT, " + COLUMN_LG_RACK + " INT, " +
-                        COLUMN_G_FRIDGE + " INT, " + COLUMN_G_RETAIL + " INT, " + COLUMN_FRST_FRIDGE + " INT, " + COLUMN_FRST_RACK + " INT, " + COLUMN_FRST_SHELF + " INT, " + COLUMN_FRST_CAKE_FRIDGE + " INT, " + COLUMN_FRST_SPEED_RAIL + " INT, " + COLUMN_CELLAR + "  INT)";
+                String createTableStatement = "CREATE TABLE " + WINE_STOCK_TABLE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_WINE_NAME + ", " + COLUMN_WINE_CODE + ", " + COLUMN_WINE_PAR + ", " + COLUMN_SR_FRIDGE + ", " + COLUMN_LG_RACK + ", " +
+                        COLUMN_G_FRIDGE + ", " + COLUMN_G_RETAIL + ", " + COLUMN_FRST_FRIDGE + ", " + COLUMN_FRST_RACK + ", " + COLUMN_FRST_SHELF + ", " + COLUMN_FRST_CAKE_FRIDGE + ", " + COLUMN_FRST_SPEED_RAIL + ", " + COLUMN_CELLAR + ")";
                 db.execSQL(createTableStatement);
         }
 
@@ -95,27 +95,43 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String queryString ="SELECT * FROM " + WINE_STOCK_TABLE;
                 SQLiteDatabase db = this.getReadableDatabase();
                 Cursor cursor = db.rawQuery(queryString,null);
+
                 if(cursor.moveToFirst()){
                         // loop through the cursor (result set) and create new customer objects. Put them into the return lost.
                         do {
 
 
-                                int id  = cursor.getInt(1);
-                                String itemName = cursor.getString(2);
-                                int itemCode = cursor.getInt(3);
-                                int par = cursor.getInt(4);
-                                int srFridge = cursor.getInt(5);
-                                int lgRack = cursor.getInt(6);
-                                int gRetail = cursor.getInt(7);
-                                int gFridge = cursor.getInt(8);
-                                int fstFridge = cursor.getInt(9);
-                                int fstRack = cursor.getInt(10);
-                                int fstShelf = cursor.getInt(11);
-                                int fstCake = cursor.getInt(12);
-                                int fstRail = cursor.getInt(13);
-                                int cellar = cursor.getInt(14);
+                                int id  = cursor.getInt(0);
+                                String itemName = cursor.getString(1);
+                                int itemCode = cursor.getInt(2);
+                                int par = cursor.getInt(3);
+                                int srFridge = cursor.getInt(4);
+                                int lgRack = cursor.getInt(5);
+                                int gRetail = cursor.getInt(6);
+                                int gFridge = cursor.getInt(7);
+                                int fstFridge = cursor.getInt(8);
+                                int fstRack = cursor.getInt(9);
+                                int fstShelf = cursor.getInt(10);
+                                int fstCake = cursor.getInt(11);
+                                int fstRail = cursor.getInt(12);
+                                int cellar = cursor.getInt(13);
 
-                                WineStockModel newWine = new WineStockModel(id,itemName,itemCode,par,srFridge,lgRack,gFridge,gRetail,fstFridge,fstRack,fstShelf,fstCake,fstRail,cellar);
+                                WineStockModel newWine = new WineStockModel(
+                                        id,
+                                        itemName,
+                                        itemCode,
+                                        par,
+                                        srFridge,
+                                        lgRack,
+                                        gFridge,
+                                        gRetail,
+                                        fstFridge,
+                                        fstRack,
+                                        fstShelf,
+                                        fstCake,
+                                        fstRail,
+                                        cellar
+                                );
 
                                 returnList.add(newWine);
 
