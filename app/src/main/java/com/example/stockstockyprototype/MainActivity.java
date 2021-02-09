@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
     Button btn_one,btn_two,btn_three,btn_four,btn_five,
             btn_six,btn_seven,btn_eight, btn_nine,
             btn_up,btn_left,btn_right,btn_down, btn_add;
+
     ListView lv_wineList;
+
+    EditText et_name,et_itemCode, et_par,et_srFridge,et_lgRack,et_gFridge, et_gRetail,
+            et_fstFridge,et_fstRack,et_fstShelf,et_fstCake,et_fstRail,et_cellar;
 
     ArrayAdapter wineArrayAdapter;
     DataBaseHelper dataBaseHelper;
@@ -45,7 +50,20 @@ public class MainActivity extends AppCompatActivity {
         lv_wineList = findViewById(R.id.lv_wineList);
 
         //Element names for text input
+        et_name = findViewById(R.id.et_name);
+        et_itemCode = findViewById(R.id.et_itemCode);
+        et_par = findViewById(R.id.et_par);
+        et_srFridge = findViewById(R.id.et_srFridge);
+        et_lgRack = findViewById(R.id.et_lgRack);
+        et_gRetail = findViewById(R.id.et_gRetail);
 
+        et_gFridge = findViewById(R.id.et_gFridge);
+        et_fstFridge = findViewById(R.id.et_fstFridge);
+        et_fstRack = findViewById(R.id.et_fstRack);
+        et_fstShelf = findViewById(R.id.et_fstShelf);
+        et_fstCake = findViewById(R.id.et_fstCake);
+        et_fstRail = findViewById(R.id.et_fstRail);
+        et_cellar = findViewById(R.id.et_cellar);
 
 
         dataBaseHelper = new DataBaseHelper(MainActivity.this);
@@ -56,11 +74,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             WineStockModel wineStockModel;
             try{
-             //   wineStockModel = new WineStockModel( -1,  );
+
+                wineStockModel  = new WineStockModel(-1,
+                        et_name.getText().toString(),
+                        Integer.parseInt(et_itemCode.getText().toString()),
+                        Integer.parseInt(et_par.getText().toString()),
+                        Integer.parseInt(et_srFridge.getText().toString()),
+                        Integer.parseInt(et_lgRack.getText().toString()),
+                        Integer.parseInt(et_gRetail.getText().toString()),
+                        Integer.parseInt(et_gFridge.getText().toString()),
+                        Integer.parseInt(et_fstFridge.getText().toString()),
+                        Integer.parseInt(et_fstRack.getText().toString()),
+                        Integer.parseInt(et_fstShelf.getText().toString()),
+                        Integer.parseInt(et_fstCake.getText().toString()),
+                        Integer.parseInt(et_fstRail.getText().toString()),
+                        Integer.parseInt(et_cellar.getText().toString()));
+
+                Toast.makeText(MainActivity.this, wineStockModel.toString(), Toast.LENGTH_SHORT).show();
+
             }
             catch (Exception e) {
                 Toast.makeText(MainActivity.this, "Error creating Customer", Toast.LENGTH_SHORT).show();
-                //wineStockModel = new WineStockModel(-1, "error",0, null,null,null,null,null,null,null,null,null,null, null);
+                wineStockModel = new WineStockModel(-1, "Error",0, 0,0,0,0,0,0,0,0,0,0,0);
 
             }
             }

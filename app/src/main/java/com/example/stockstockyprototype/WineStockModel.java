@@ -2,33 +2,33 @@ package com.example.stockstockyprototype;
 
 public class WineStockModel {
     private int id;
-    private int itemCode;
     private String itemName;
+    private int itemCode;
     private int par;
     private int srFridge;
-    private int srRack;
     private int lgRack;
-    private int lgFridge;
-    private int lgRetail;
+    private int gFridge;
+    private int gRetail;
     private int fstFridge;
     private int fstRack;
     private int fstShelf;
+    private int fstCake;
     private int fstRail;
     private int cellar;
 
-
-    public WineStockModel(int id, int itemCode, String itemName, int par, int srFridge, int lgRack, int lgFridge, int lgRetail, int fstFridge, int fstRack, int fstShelf, int fstRail, int cellar) {
+    public WineStockModel(int id, String itemName, int itemCode, int par, int srFridge, int lgRack, int gFridge, int gRetail, int fstFridge, int fstRack, int fstShelf, int fstCake, int fstRail, int cellar) {
         this.id = id;
-        this.itemCode = itemCode;
         this.itemName = itemName;
+        this.itemCode = itemCode;
         this.par = par;
         this.srFridge = srFridge;
         this.lgRack = lgRack;
-        this.lgFridge = lgFridge;
-        this.lgRetail = lgRetail;
+        this.gFridge = gFridge;
+        this.gRetail = gRetail;
         this.fstFridge = fstFridge;
         this.fstRack = fstRack;
         this.fstShelf = fstShelf;
+        this.fstCake = fstCake;
         this.fstRail = fstRail;
         this.cellar = cellar;
     }
@@ -37,16 +37,17 @@ public class WineStockModel {
     public String toString() {
         return "WineStockModel{" +
                 "id=" + id +
+                ", itemName='" + itemName + '\'' +
                 ", itemCode=" + itemCode +
-                ", itemName='" + itemName +
                 ", par=" + par +
                 ", srFridge=" + srFridge +
                 ", lgRack=" + lgRack +
-                ", lgFridge=" + lgFridge +
-                ", lgRetail=" + lgRetail +
+                ", gFridge=" + gFridge +
+                ", gRetail=" + gRetail +
                 ", fstFridge=" + fstFridge +
                 ", fstRack=" + fstRack +
                 ", fstShelf=" + fstShelf +
+                ", fstCake=" + fstCake +
                 ", fstRail=" + fstRail +
                 ", cellar=" + cellar +
                 '}';
@@ -60,20 +61,20 @@ public class WineStockModel {
         this.id = id;
     }
 
-    public int getItemCode() {
-        return itemCode;
-    }
-
-    public void setItemCode(int itemCode) {
-        this.itemCode = itemCode;
-    }
-
     public String getItemName() {
         return itemName;
     }
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public int getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(int itemCode) {
+        this.itemCode = itemCode;
     }
 
     public int getPar() {
@@ -100,20 +101,20 @@ public class WineStockModel {
         this.lgRack = lgRack;
     }
 
-    public int getLgFridge() {
-        return lgFridge;
+    public int getgFridge() {
+        return gFridge;
     }
 
-    public void setLgFridge(int lgFridge) {
-        this.lgFridge = lgFridge;
+    public void setgFridge(int gFridge) {
+        this.gFridge = gFridge;
     }
 
-    public int getLgRetail() {
-        return lgRetail;
+    public int getgRetail() {
+        return gRetail;
     }
 
-    public void setLgRetail(int lgRetail) {
-        this.lgRetail = lgRetail;
+    public void setgRetail(int gRetail) {
+        this.gRetail = gRetail;
     }
 
     public int getFstFridge() {
@@ -138,6 +139,14 @@ public class WineStockModel {
 
     public void setFstShelf(int fstShelf) {
         this.fstShelf = fstShelf;
+    }
+
+    public int getFstCake() {
+        return fstCake;
+    }
+
+    public void setFstCake(int fstCake) {
+        this.fstCake = fstCake;
     }
 
     public int getFstRail() {

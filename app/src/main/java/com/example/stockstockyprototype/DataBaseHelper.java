@@ -99,21 +99,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         // loop through the cursor (result set) and create new customer objects. Put them into the return lost.
                         do {
 
-                                int id = cursor.getInt(1);
-                                int itemCode = cursor.getInt(2);
-                                String itemName = cursor.getString(3);
+
+                                int id  = cursor.getInt(1);
+                                String itemName = cursor.getString(2);
+                                int itemCode = cursor.getInt(3);
                                 int par = cursor.getInt(4);
                                 int srFridge = cursor.getInt(5);
-                                int lgRack = cursor.getInt(7);
-                                int lgFridge = cursor.getInt(8);
-                                int lgRetail = cursor.getInt(9);
-                                int fstFridge = cursor.getInt(10);
-                                int fstRack = cursor.getInt(11);
-                                int fstShelf = cursor.getInt(12);
+                                int lgRack = cursor.getInt(6);
+                                int gRetail = cursor.getInt(7);
+                                int gFridge = cursor.getInt(8);
+                                int fstFridge = cursor.getInt(9);
+                                int fstRack = cursor.getInt(10);
+                                int fstShelf = cursor.getInt(11);
+                                int fstCake = cursor.getInt(12);
                                 int fstRail = cursor.getInt(13);
                                 int cellar = cursor.getInt(14);
 
-                                WineStockModel newWine = new WineStockModel(id,itemCode,itemName,par,srFridge,lgRack,lgFridge,lgRetail,fstFridge,fstRack,fstShelf,fstRail,cellar);
+                                WineStockModel newWine = new WineStockModel(id,itemName,itemCode,par,srFridge,lgRack,gFridge,gRetail,fstFridge,fstRack,fstShelf,fstCake,fstRail,cellar);
 
                                 returnList.add(newWine);
 
